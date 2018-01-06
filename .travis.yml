@@ -7,5 +7,5 @@ before_install:
 - sudo apt install gcc-multilib g++-multilib -qq
 - sudo apt install grub-pc-bin -qq
 
-install:
+script:
 - make iso
