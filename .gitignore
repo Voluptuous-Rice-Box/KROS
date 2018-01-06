@@ -1,0 +1,7 @@
+*.iso
+*.o
+
+# Ignore everything in the iso folder except grub.cfg,
+# which is required by grub-mkrescue to build an iso.
+iso/
+!iso/boot/grub/grub.cfg
