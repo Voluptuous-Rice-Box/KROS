@@ -1,0 +1,11 @@
+language: cpp
+
+before_install:
+- sudo apt update -qq
+- sudo apt install nasm -qq
+- sudo apt install xorriso -qq
+- sudo apt install gcc-multilib g++-multilib -qq
+- sudo apt install grub-pc-bin -qq
+
+script:
+- make iso
