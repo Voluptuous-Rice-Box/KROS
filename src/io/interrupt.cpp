@@ -1,5 +1,8 @@
 #include "interrupt.h"
 
+idt_register_t idt_register;
+idt_gate_t idt[NUM_IDT_ENTRIES];
+
 void set_idt() {
     idt_register.base = (uint32_t) &idt;
     idt_register.size = NUM_IDT_ENTRIES * sizeof(idt_gate_t) - 1;

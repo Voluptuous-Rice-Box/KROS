@@ -13,14 +13,14 @@ typedef struct {
      * Bit 7: "Interrupt is present"
      * Bits 6-5: Privilege level of caller (0=kernel..3=user)
      * Bit 4: Set to 0 for interrupt gates
-     * Bits 3-0: 0b1110 = 14d = "32 bit interrupt gate" 
+     * Bits 3-0: 0b1110 = 14d = "32 bit interrupt gate"
      */
     uint8_t flags;
     uint16_t offset_high;
 } __attribute((packed)) idt_gate_t;
 
 #define NUM_IDT_ENTRIES 16
-idt_gate_t idt[NUM_IDT_ENTRIES];
+extern idt_gate_t idt[NUM_IDT_ENTRIES];
 
 /* A pointer to the array of interrupt handlers.
  * Assembly instruction 'lidt' will read it */
@@ -28,8 +28,6 @@ typedef struct {
     uint16_t size;
     uint32_t base;
 } __attribute__((packed)) idt_register_t;
-
-idt_register_t idt_register;
 
 void set_idt_gate(int interrupt_num, uint32_t handler);
 void set_idt();

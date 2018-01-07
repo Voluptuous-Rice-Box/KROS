@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
-// #include "io/interrupt.h"
-#include "io/test.h"
+#include "io/interrupt.h"
 
 /* Hardware text mode color constants. */
 enum vga_color
@@ -121,37 +120,44 @@ extern "C" void interrupt_handler(struct cpu_state cpu, struct stack_state stack
 	} else {
 		terminal_writestring("got interrupt greater than or equal to 10");
 	}
-	for (int i = 0; i < 100000000; i++) {
+	for (int i = 0; i < 1000000000; i++) {
 
 	}
+}
+
+void print_num(int n) {
+
 }
 
 // Don't mangle the kernel entry point. The linker needs to know
 // what this function is called to pass the address to the bootloader.
 extern "C" void kmain()
 {
-	// set_idt_gate(0, (uint32_t) interrupt_handler_0);
-	// set_idt_gate(1, (uint32_t) interrupt_handler_1);
-	// set_idt_gate(2, (uint32_t) interrupt_handler_2);
-	// set_idt_gate(3, (uint32_t) interrupt_handler_3);
-	// set_idt_gate(4, (uint32_t) interrupt_handler_4);
-	// set_idt_gate(5, (uint32_t) interrupt_handler_5);
-	// set_idt_gate(6, (uint32_t) interrupt_handler_6);
-	// set_idt_gate(7, (uint32_t) interrupt_handler_7);
-	// set_idt_gate(8, (uint32_t) interrupt_handler_8);
-	// set_idt_gate(9, (uint32_t) interrupt_handler_9);
-	// set_idt_gate(10, (uint32_t) interrupt_handler_10);
-	// set_idt_gate(11, (uint32_t) interrupt_handler_11);
-	// set_idt_gate(12, (uint32_t) interrupt_handler_12);
-	// set_idt_gate(13, (uint32_t) interrupt_handler_13);
-	// set_idt_gate(14, (uint32_t) interrupt_handler_14);
-	// set_idt_gate(15, (uint32_t) interrupt_handler_15);
-
-	int y = test();
-	int z = SNDUANSDUAS;
+	set_idt_gate(0, (uint32_t) interrupt_handler_0);
+	set_idt_gate(1, (uint32_t) interrupt_handler_1);
+	set_idt_gate(2, (uint32_t) interrupt_handler_2);
+	set_idt_gate(3, (uint32_t) interrupt_handler_3);
+	set_idt_gate(4, (uint32_t) interrupt_handler_4);
+	set_idt_gate(5, (uint32_t) interrupt_handler_5);
+	set_idt_gate(6, (uint32_t) interrupt_handler_6);
+	set_idt_gate(7, (uint32_t) interrupt_handler_7);
+	set_idt_gate(8, (uint32_t) interrupt_handler_8);
+	set_idt_gate(9, (uint32_t) interrupt_handler_9);
+	set_idt_gate(10, (uint32_t) interrupt_handler_10);
+	set_idt_gate(11, (uint32_t) interrupt_handler_11);
+	set_idt_gate(12, (uint32_t) interrupt_handler_12);
+	set_idt_gate(13, (uint32_t) interrupt_handler_13);
+	set_idt_gate(14, (uint32_t) interrupt_handler_14);
+	set_idt_gate(15, (uint32_t) interrupt_handler_15);
+	set_idt();
 
 	terminal_initialize();
 	terminal_writestring("welcome to my first operating system!");
-	int x = 3 / 0;
+
+	print_num((uint32_t) idt);
+
+	// __asm__ __volatile__("int $2");
+	// __asm__ __volatile__("int $3");
+
 	for(;;);
 }
