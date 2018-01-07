@@ -9,7 +9,6 @@
 */
 extern "C" void outb(unsigned short port, unsigned char data);
 
-
 /* The I/O ports */
 #define FB_COMMAND_PORT 0x3D4
 #define FB_DATA_PORT 0x3D5
@@ -22,7 +21,6 @@ extern "C" void outb(unsigned short port, unsigned char data);
 * @param pos The new position of the cursor
 */
 void fb_move_cursor(unsigned short pos) {
-
 	outb(FB_COMMAND_PORT, FB_HIGH_BYTE_COMMAND);
 	outb(FB_DATA_PORT, ((pos >> 8) & 0x00FF));
 	outb(FB_COMMAND_PORT, FB_LOW_BYTE_COMMAND);
