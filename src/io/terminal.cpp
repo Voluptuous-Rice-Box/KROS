@@ -5,7 +5,7 @@
 
 static const size_t VGA_WIDTH = 80;
 static const size_t VGA_HEIGHT = 24;
-static uint16_t* TERMINAL_BUFFER = (uint16_t*) 0xB8000; 
+static uint16_t* TERMINAL_BUFFER = (uint16_t*) 0xB8000;
 
 static size_t current_terminal_row;
 static size_t current_terminal_column;
@@ -76,3 +76,30 @@ void terminal_write(const char* data) {
 		terminal_putchar(data[i]);
 }
 
+void terminal_write_int(int n) {
+	if (n < 0) {
+		terminal_putchar('-');
+		n = n * -1;
+	}
+
+	// Can shorten this step when we implement log
+	int num_digits = 0;
+	int tmp = n;
+	do {
+		num_digits++;
+		tmp = tmp / 10;
+	} while (tmp > 0);
+
+	do {
+		// Can shorten this step when we implement pow
+		int base = 1;
+		for (int i = 0; i < num_digits - 1; i++) {
+			base = base * 10;
+		}
+		char digit = (n / base);
+
+		terminal_putchar('0' + digit);
+		n = n - (digit * base);
+		num_digits--;
+	} while (num_digits > 0);
+}
