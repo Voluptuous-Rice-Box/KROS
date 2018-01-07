@@ -133,7 +133,7 @@ void print_num(int n) {
 	while (n > 0) {
 		char ch = n % 10 + '0';
 		terminal_putchar(ch);
-		n = n / 16;
+		n = n / 10;
 	}
 	terminal_writestring("\n");
 }
@@ -163,9 +163,14 @@ extern "C" void kmain()
 	terminal_initialize();
 	terminal_writestring("welcome to my first operating system!");
 
-	print_num((uint32_t) idt);
-	print_num((uint32_t) idt[0].offset_high);
-	print_num((uint32_t) idt[0].offset_low);
+	interrupt_handler_0();
+
+	// print_num((uint32_t) interrupt_handler_0);
+	// print_num((uint32_t) idt[0].offset_high);
+	// print_num((uint32_t) idt[0].offset_low);
+	// print_num((uint32_t) idt[0].always_zero);
+	// print_num((uint32_t) idt[0].flags);
+	// print_num((uint32_t) idt[0].segment_selector);
 
 	// __asm__ __volatile__("int $2");
 	// __asm__ __volatile__("int $3");
