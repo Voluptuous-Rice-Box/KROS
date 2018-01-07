@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
-#include "io/io.h"
+#include "io/io_port.h"
 
 /* Hardware text mode color constants. */
 enum vga_color
