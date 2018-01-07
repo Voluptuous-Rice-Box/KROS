@@ -10,7 +10,6 @@ static uint16_t* TERMINAL_BUFFER = (uint16_t*) 0xB8000;
 static size_t current_terminal_row;
 static size_t current_terminal_column;
 static uint8_t terminal_color;
-static uint16_t* terminal_buffer;
 
 /* PRIVATE FUNCTIONS */
 
@@ -58,7 +57,7 @@ void terminal_set_color(uint8_t color) {
 
 void terminal_put_entry_at(char c, uint8_t color, size_t x, size_t y) {
 	const size_t index = terminal_buffer_idx(x,y);
-	terminal_buffer[index] = make_vga_entry(c, color);
+	TERMINAL_BUFFER[index] = make_vga_entry(c, color);
 }
 
 void terminal_putchar(char c) {
