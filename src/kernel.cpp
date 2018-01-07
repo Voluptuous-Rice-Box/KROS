@@ -126,7 +126,16 @@ extern "C" void interrupt_handler(struct cpu_state cpu, struct stack_state stack
 }
 
 void print_num(int n) {
-
+	terminal_writestring("\n0x");
+	if (n == 0) {
+		terminal_putchar('0');
+	}
+	while (n > 0) {
+		char ch = n % 10 + '0';
+		terminal_putchar(ch);
+		n = n / 16;
+	}
+	terminal_writestring("\n");
 }
 
 // Don't mangle the kernel entry point. The linker needs to know
@@ -155,6 +164,8 @@ extern "C" void kmain()
 	terminal_writestring("welcome to my first operating system!");
 
 	print_num((uint32_t) idt);
+	print_num((uint32_t) idt[0].offset_high);
+	print_num((uint32_t) idt[0].offset_low);
 
 	// __asm__ __volatile__("int $2");
 	// __asm__ __volatile__("int $3");
