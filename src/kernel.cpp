@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
+#include "io/io.h"
 
 /* Hardware text mode color constants. */
 enum vga_color
@@ -109,5 +110,6 @@ extern "C" void kmain()
 	terminal_writestring("welcome to my first operating system!");
 	terminal_writestring("welcome to my first operating system!");
 	terminal_writestring("welcome to my first operating system!");
+	fb_move_cursor(81);
 	for(;;);
 }
