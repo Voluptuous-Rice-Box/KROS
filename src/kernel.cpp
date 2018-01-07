@@ -110,6 +110,6 @@ extern "C" void kmain()
 	terminal_writestring("welcome to my first operating system!");
 	terminal_writestring("welcome to my first operating system!");
 	terminal_writestring("welcome to my first operating system!");
-	fb_move_cursor(81);
+	frame_buffer_move_cursor(81);
 	for(;;);
 }
