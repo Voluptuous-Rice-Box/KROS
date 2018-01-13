@@ -5,7 +5,7 @@
 
 // Don't mangle the kernel entry point. The linker needs to know
 // what this function is called to pass the address to the bootloader.
-extern "C" void kmain()
+extern void kmain()
 {
 	terminal_initialize();
 	terminal_write("welcome to my first operating system!");
