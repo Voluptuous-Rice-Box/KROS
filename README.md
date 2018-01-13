@@ -1,5 +1,7 @@
 # OS
 
+[![Build Status](https://travis-ci.org/valakuzhyk/KROS.svg?branch=master)](https://travis-ci.org/valakuzhyk/KROS)
+
 ## Dependencies
 ```bash
 sudo apt install nasm
