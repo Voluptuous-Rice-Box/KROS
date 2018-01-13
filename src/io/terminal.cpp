@@ -57,6 +57,11 @@ void terminal_set_color(uint8_t color) {
 
 void terminal_put_entry_at(char c, uint8_t color, size_t x, size_t y) {
 	const size_t index = terminal_buffer_idx(x,y);
+	if(c = 0xa){
+		current_terminal_column = 0;
+		if( ++current_terminal_row == VGA_HEIGHT)
+			current_terminal_row = 0;
+	} 
 	TERMINAL_BUFFER[index] = make_vga_entry(c, color);
 }
 
@@ -74,5 +79,12 @@ void terminal_write(const char* data) {
 	size_t datalen = strlen(data);
 	for ( size_t i = 0; i < datalen; i++ )
 		terminal_putchar(data[i]);
+}
+
+void terminal_println(const char* data){
+	terminal_write(data);
+	current_terminal_column = 0;
+	if( ++current_terminal_row == VGA_HEIGHT)
+		current_terminal_row = 0;
 }
 
