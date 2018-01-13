@@ -4,7 +4,7 @@
 ```bash
 sudo apt install nasm
 sudo apt install xorriso
-sudo apt install gcc-multilib g++-multilib
+sudo apt install gcc-multilib
 sudo apt install grub-pc-bin
 ```
 
