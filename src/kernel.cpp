@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
+#include "io/io_port.h"
 
 #include "io/terminal.h"
 
@@ -8,6 +9,7 @@
 extern "C" void kmain()
 {
 	terminal_initialize();
+
 	terminal_write("welcome to my first operating system!");
 	terminal_write("welcome to my first operating system!");
 	terminal_write("welcome to my first operating system!");
@@ -15,5 +17,6 @@ extern "C" void kmain()
 	terminal_write("welcome to my first operating system!");
 	terminal_write("welcome to my first operating system!");
 	terminal_write("welcome to my first operating system!");
+	frame_buffer_move_cursor(81);
 	for(;;);
 }
