@@ -103,3 +103,41 @@ void terminal_write_int(int n) {
 		num_digits--;
 	} while (num_digits > 0);
 }
+
+// writes the hex representation of a number on the terminal.
+void terminal_write_hex(int n) {
+  if (n < 0) {
+    terminal_putchar('-');
+    n = -n;
+  }
+
+  // Prefix all hex numbers
+  terminal_write("0x");
+
+  // Can shorten this step when we implement log
+  int num_digits = 0;
+  int tmp = n;
+  do {
+    num_digits++;
+    tmp = tmp / 16;
+  } while (tmp > 0);
+
+  int digitBase = 1;
+  for (int i = 1; i < num_digits; i++) {
+    digitBase = digitBase * 16;
+  }
+  do {
+    // Can shorten this step when we implement pow
+    char digit = (n / digitBase);
+
+
+    if (digit < 10) {
+      terminal_putchar('0' + digit);
+    } else {
+      terminal_putchar('A' + digit - 10);
+    }
+
+    n = n % digitBase;
+    digitBase /= 16;
+  } while (n != 0);
+}
