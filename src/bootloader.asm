@@ -8,8 +8,9 @@ section .text
 	dd 0x00                  ; flags
 	dd - (0x1BADB002 + 0x00) ; checksum. m+f+c should be zero
 
-; this specifies the code entry point for the linker (see linker.ld)
+; this specifies code entry points for the linker (see linker.ld)
 global start
+global halt_os
 
 ; the linker will resolve the address of our main kernel function
 extern kmain
@@ -19,6 +20,9 @@ start:
 	cli
 	mov esp, kernel_stack + KERNEL_STACK_SIZE ; stack grows upward
 	call kmain
+	jmp halt_os
+
+halt_os:
 	hlt
 
 KERNEL_STACK_SIZE equ 8192

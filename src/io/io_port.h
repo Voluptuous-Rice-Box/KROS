@@ -14,7 +14,7 @@
 * @param port The I/O port to send the data to
 * @param data The data to send to the I/O port
 */
-extern "C" void io_port_write(unsigned short port, unsigned char data);
+extern void io_port_write(unsigned short port, unsigned char data);
 
 
 /** fb_move_cursor:
