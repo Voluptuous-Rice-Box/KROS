@@ -7,9 +7,9 @@ iso:
 	nasm -f elf src/io/io_port.asm -o io_port.o
 
 	# Compile the kernel
-	gcc -m32 -c src/kernel.c -o kernel.o -ffreestanding -fno-exceptions -fno-rtti
-	gcc -m32 -c src/io/terminal.c -o terminal.o -ffreestanding -fno-exceptions -fno-rtti
-	gcc -m32 -c src/error.c -o error.o -ffreestanding -fno-exceptions -fno-rtti
+	gcc -m32 -c src/kernel.c -o kernel.o -ffreestanding -fno-exceptions -std=c99
+	gcc -m32 -c src/io/terminal.c -o terminal.o -ffreestanding -fno-exceptions -std=c99
+	gcc -m32 -c src/error.c -o error.o -ffreestanding -fno-exceptions -std=c99
 
 	# Build the kernel executable. The linker helps the bootloader
 	# find the entry point (our kernel main function). The kernel
