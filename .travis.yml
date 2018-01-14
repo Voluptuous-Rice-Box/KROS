@@ -19,6 +19,6 @@ before_install:
 script:
 - make iso
 
-testing:
+test:
 - gcc test/test.c -lcmocka -o test
 - ./test   
