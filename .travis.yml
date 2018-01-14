@@ -15,10 +15,8 @@ before_install:
 - sudo make install
 - cd ../..
 
-test:
+script:
 - gcc test/test.c -lcmocka -o test
 - ./test   
-
-script:
 - make iso
 
