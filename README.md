@@ -1,6 +1,6 @@
 # OS
 
-[![Build Status](https://travis-ci.org/valakuzhyk/KROS.svg?branch=master)](https://travis-ci.org/valakuzhyk/KROS)
+[![Build Status](https://travis-ci.org/Voluptuous-Rice-Box/KROS.svg?branch=master)](https://travis-ci.org/Voluptuous-Rice-Box/KROS)
 
 ## Dependencies
 ```bash
