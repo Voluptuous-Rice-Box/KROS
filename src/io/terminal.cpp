@@ -83,7 +83,7 @@ void terminal_write(const char* data) {
 		terminal_putchar(data[i]);
 }
 
-void terminal_println(const char* data){
+void terminal_writeln(const char* data){
 	terminal_write(data);
 	terminal_next_line();
 }

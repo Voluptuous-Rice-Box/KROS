@@ -33,5 +33,6 @@ void terminal_put_entry_at(char c, uint8_t color, size_t x, size_t y);
 void terminal_put_char(char c);
 void terminal_write(const char* data);
 void terminal_writeln(const char* data);
+void terminal_next_line();
 
 #endif  // TERMINAL_H
