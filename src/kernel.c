@@ -18,5 +18,4 @@ extern void kmain()
 	terminal_write("welcome to my first operating system!");
 	terminal_write("welcome to my first operating system!");
 	frame_buffer_move_cursor(81);
-	for(;;);
 }
