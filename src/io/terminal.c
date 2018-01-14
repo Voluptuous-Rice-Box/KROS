@@ -59,8 +59,9 @@ void terminal_put_entry_at(char c, uint8_t color, size_t x, size_t y) {
 	const size_t index = terminal_buffer_idx(x,y);
 	if (c == '\n') {
 		terminal_next_line();
-	} 
-	TERMINAL_BUFFER[index] = make_vga_entry(c, color);
+	} else {
+		TERMINAL_BUFFER[index] = make_vga_entry(c, color);
+	}
 }
 
 void terminal_next_line(){
