@@ -34,5 +34,6 @@ void terminal_put_char(char c);
 void terminal_write(const char* data);
 void terminal_writeln(const char* data);
 void terminal_next_line();
+void terminal_write_hex(int n);
 
 #endif  // TERMINAL_H
