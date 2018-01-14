@@ -112,5 +112,5 @@ void terminal_write_hex(int n) {
 
 		n = n % digitBase;
 		digitBase /= 16;
-	} while (n != 0);
+	} while (digitBase == 0);
 }
