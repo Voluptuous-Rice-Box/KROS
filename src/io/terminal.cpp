@@ -57,7 +57,7 @@ void terminal_set_color(uint8_t color) {
 
 void terminal_put_entry_at(char c, uint8_t color, size_t x, size_t y) {
 	const size_t index = terminal_buffer_idx(x,y);
-	if(c = 0xa){
+	if (c == '\n') {
 		current_terminal_column = 0;
 		if( ++current_terminal_row == VGA_HEIGHT)
 			current_terminal_row = 0;
