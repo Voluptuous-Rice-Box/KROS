@@ -16,7 +16,7 @@ before_install:
 - cd ../..
 
 script:
-- gcc test/test.c -lcmocka -o test
-- ./test   
+- gcc test/test.c -lcmocka -o unitTest
+- ./unitTest   
 - make iso
 
