@@ -13,7 +13,7 @@ before_install:
 - cd build
 - cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DUNIT_TESTING=ON ..
 - sudo make install
-- cd ..
+- cd ../..
 
 
 script:
