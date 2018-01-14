@@ -80,7 +80,7 @@ void terminal_write(const char* data) {
 void terminal_write_hex(int n) {
 	if (n < 0) {
 		terminal_putchar('-');
-    	n = -n;
+		n = -n;
 	}
 
 	// Prefix all hex numbers
